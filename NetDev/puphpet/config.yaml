@@ -43,7 +43,7 @@ vagrantfile:
             vflsf_8buahyf24r08:
                 owner: vagrant
                 group: vagrant
-                source: /Users/benmason/Code
+                source: ~/code
                 target: //home/vagrant/code
                 sync_type: default
                 smb:
