@@ -172,11 +172,8 @@ python:
     install: '1'
     packages:
         - setuptools
-        - cryptography
-        - paramiko
-        - scp
-        - pyyaml
         - netmiko
+        - pyyaml
         - ipython
         - ipaddress
         - ncclient
