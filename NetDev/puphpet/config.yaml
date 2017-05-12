@@ -93,7 +93,7 @@ server:
         - uml-utilities
         - qemu-system
         - libpython-dev
-        - ansible
+        - sshpass
 users_groups:
     install: '1'
     groups: {  }
@@ -183,6 +183,7 @@ python:
         - pylint
         - mkdocs
         - prettyprint
+        - ansible
         - xmltodict
     versions: { }
         # pyenv_qayvbqc5yc28:
