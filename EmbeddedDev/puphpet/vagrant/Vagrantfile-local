@@ -255,6 +255,11 @@ machines.each do |i, machine|
         virtualbox.customize ['modifyvm', :id, '--memory', "#{machine['memory']}"]
         virtualbox.customize ['modifyvm', :id, '--cpus', "#{machine['cpus']}"]
 
+        if provider['virtualizers']['virtualbox']['mapusb'] == true
+          # Connect Lattie ICE Stick USB
+          virtualbox.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Lattice FTUSB Interface Cable', '--vendorid', '0x0403', '--productid', '0x6010']
+        end 
+
         if !provider['virtualizers']['virtualbox']['showgui'].nil? &&
           provider['virtualizers']['virtualbox']['showgui'].to_i == 1
           virtualbox.gui = true

@@ -12,6 +12,7 @@ vagrantfile:
                         modifyvm:
                             natdnshostresolver1: false
                         showgui: 0
+                        mapusb: true
                     vmware:
                         numvcpus: 1
                     parallels:
@@ -101,6 +102,22 @@ server:
         # - smartsim
         - minicom
         - tmux
+        - build-essential
+        - clang
+        - bison
+        - flex
+        - libreadline-dev
+        - gawk
+        - tcl-dev
+        - libffi-dev
+        - git
+        - mercurial
+        - graphviz
+        - xdot
+        - pkg-config
+        - libftdi-dev
+        #- arduino
+        #- arduino-core
 users_groups:
     install: '1'
     groups: {  }
