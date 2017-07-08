@@ -93,7 +93,7 @@ server:
         - uml-utilities
         - qemu-system
         - libpython-dev
-        - ansible
+        - sshpass
 users_groups:
     install: '1'
     groups: {  }
@@ -172,11 +172,8 @@ python:
     install: '1'
     packages:
         - setuptools
-        - cryptography
-        - paramiko
-        - scp
-        - pyyaml
         - netmiko
+        - pyyaml
         - ipython
         - ipaddress
         - ncclient
@@ -184,6 +181,10 @@ python:
         - requests
         - pysnmp
         - pylint
+        - mkdocs
+        - prettyprint
+        - ansible
+        - xmltodict
     versions: { }
         # pyenv_qayvbqc5yc28:
         #     version: 3.4.0
