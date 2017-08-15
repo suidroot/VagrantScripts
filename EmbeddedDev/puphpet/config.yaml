@@ -116,6 +116,12 @@ server:
         - xdot
         - pkg-config
         - libftdi-dev
+        - gcc-msp430
+        - msp430-libc
+        - curl
+        - wget
+        - python-serial
+        - arduino
         #- arduino
         #- arduino-core
 users_groups:
