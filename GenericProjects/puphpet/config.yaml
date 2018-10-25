@@ -1,0 +1,187 @@
+vagrantfile:
+    target: local
+    vm:
+        provider:
+            local:
+                box: puphpet/ubuntu1604-x64
+                box_url: 'false'
+                box_version: '0'
+                chosen_virtualizer: virtualbox
+                virtualizers:
+                    virtualbox:
+                        modifyvm:
+                            natdnshostresolver1: false
+                        showgui: 0
+                    vmware:
+                        numvcpus: 1
+                    parallels:
+                        linked_clone: 0
+                        check_guest_tools: 0
+                        update_guest_tools: 0
+                machines:
+                    vflm_h7s14dr6d352:
+                        id: TGC-Generic 
+                        hostname: TGC-Generic.puphpet
+                        network:
+                            private_network: 192.168.56.101
+                            forwarded_port:
+                                vflmnfp_70zsia0293s5:
+                                    host: '5071'
+                                    guest: '22'
+                        memory: '4096'
+                        cpus: '1'
+        provision:
+            puppet:
+                manifests_path: puphpet/puppet/manifests
+                module_path:
+                    - puphpet/puppet/modules
+                    - puphpet/puppet/manifests
+                options:
+                    - '--verbose'
+                    - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
+        synced_folder:
+            vflsf_8buahyf24r08:
+                owner: vagrant
+                group: vagrant
+                source: ~/
+                target: /home/vagrant/hosthome
+                sync_type: default
+                smb:
+                    smb_host: ''
+                    smb_username: ''
+                    smb_password: ''
+                    mount_options:
+                        dir_mode: '0775'
+                        file_mode: '0664'
+                rsync:
+                    args:
+                        - '--verbose'
+                        - '--archive'
+                        - '-z'
+                    exclude:
+                        - .vagrant/
+                        - .git/
+                    auto: 'true'
+        usable_port_range:
+            start: 10200
+            stop: 10500
+        post_up_message: ''
+    ssh:
+        host: 'false'
+        port: 'false'
+        private_key_path: 'false'
+        username: vagrant
+        guest_port: 'false'
+        keep_alive: '1'
+        forward_agent: 'false'
+        forward_x11: 'false'
+        shell: 'bash -l'
+        insert_key: 'false'
+    vagrant:
+        host: detect
+    proxy:
+        http: ''
+        https: ''
+        ftp: ''
+        no_proxy: ''
+server:
+    install: '1'
+    packages:
+        - vim
+        - htop
+        - bridge-utils
+        - uml-utilities
+        - qemu-system
+        - libpython-dev
+        - sshpass
+users_groups:
+    install: '1'
+    groups: {  }
+    users:
+        - locutus 
+locale:
+    install: '1'
+    settings:
+        default_locale: en_US.UTF-8
+        locales:
+            - en_GB.UTF-8
+            - en_US.UTF-8
+        timezone: UTC
+firewall:
+    install: '1'
+    rules: {  }
+resolv:
+    install: '1'
+    nameservers:
+        - 8.8.8.8
+        - 8.8.4.4
+    domainname: ''
+    searchpath: {  }
+cron:
+    install: '1'
+    jobs: {  }
+letsencrypt:
+    install: '1'
+    settings:
+        email: ''
+        webserver_service: ''
+    domains: {  }
+xdebug:
+    install: '0'
+    settings:
+        xdebug.default_enable: '1'
+        xdebug.remote_autostart: '0'
+        xdebug.remote_connect_back: '1'
+        xdebug.remote_enable: '1'
+        xdebug.remote_handler: dbgp
+        xdebug.remote_port: '9000'
+blackfire:
+    install: '0'
+    settings:
+        server_id: ''
+        server_token: ''
+        agent:
+            http_proxy: ''
+            https_proxy: ''
+            log_file: stderr
+            log_level: '1'
+        php:
+            agent_timeout: '0.25'
+            log_file: ''
+            log_level: '1'
+xhprof:
+    install: '0'
+wpcli:
+    install: '0'
+    version: v1.1.0
+drush:
+    install: '0'
+    version: 8.0.5
+ruby:
+    install: '1'
+    versions:
+        rv_zgekp2p4wonz:
+            default: '1'
+            bundler: '1'
+            version: 2.3.1
+            gems:
+                - deep_merge@1.0.1
+                - activesupport@4.2.6
+                - vine@0.2
+python:
+    install: '1'
+    packages:
+        - setuptools
+        - ipython
+        - requests
+        - pylint
+        - mkdocs
+        - prettyprint
+    versions: { }
+        # pyenv_qayvbqc5yc28:
+        #     version: 3.4.0
+nodejs:
+    install: '0'
+    settings:
+        version: '6'
+    npm_packages: {  }
